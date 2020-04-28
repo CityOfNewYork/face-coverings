@@ -29,7 +29,7 @@
 <body class="loading">
 	<script>
     var cacheBust = nyc.cacheBust(5);
-    var geo_url = 'https://maps.nyc.gov/geoclient/v1/search.json?app_key=74DF5DB1D7320A9A2&app_id=nyc-lib-example'
+    var geo_url = 'https://maps.nyc.gov/geoclient/v1/search.json?app_key=8B09B754F36069BC3&app_id=face-coverings'
     new nyc.ol.FinderApp({
       title: 'Face Coverings Distribution',
       facilityTabTitle: 'Locations',
@@ -79,7 +79,7 @@
               this.get('Date') + ', ' + this.get('Times') + '</strong></div>');
         }
       }],
-      directionsUrl: 'https://maps.googleapis.com/maps/api/js?&sensor=false&libraries=visualization'
+      directionsUrl: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBB0m1-hNGz_za3-BpD3uoc6JqwITWI_xg&channel=face-coverings&sensor=false&libraries=visualization'
     });
 	</script>
 </body>
