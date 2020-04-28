@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <title>PPE Distribution</title>
+  <title>Face Coverings Distribution</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js"></script>
   <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
@@ -11,12 +11,17 @@
   <script src="https://maps.nyc.gov/nyc-lib/v1.3.81/js/babel-polyfill.js"></script>
   <script src="https://maps.nyc.gov/nyc-lib/v1.3.81/js/nyc-ol-lib.js"></script>
   <link href="https://maps.nyc.gov/nyc-lib/v1.3.81/css/nyc-ol-fullscreen-lib.css" rel="stylesheet">
+  <style>
+    div.when {
+      margin: 5px 0;
+    }
+  </style>
 </head>
 <body class="loading">
 	<script>
     var geo_url = 'https://maps.nyc.gov/geoclient/v1/search.json?app_key=74DF5DB1D7320A9A2&app_id=nyc-lib-example'
     new nyc.ol.FinderApp({
-      title: 'PPE Distribution',
+      title: 'Face Coverings Distribution',
       facilityTabTitle: 'Locations',
       splashOptions: {message: '<h2>Sample text</h2><p>Use HTML if you want.</p>'},
       geoclientUrl: geo_url,
@@ -27,6 +32,20 @@
         dataProjection: 'EPSG:2263'
       }),
       decorations: [{
+        html: function() {
+          return $('<div class="facility"></div>')
+            .addClass(this.cssClass())
+            .append(this.distanceHtml())
+            .append(this.nameHtml())
+            .append(this.distanceHtml(true))
+            .append(this.addressHtml())
+            .append(this.timeHtml())
+            .append(this.mapButton())
+            .append(this.directionsButton())
+            .data('feature', this)
+            .mouseover($.proxy(this.handleOver, this))
+            .mouseout($.proxy(this.handleOut, this))
+        },
         getName: function() {
           return this.get('Park');
         },
@@ -43,13 +62,12 @@
           }[this.get('Boro')];
         },
         getCityStateZip: function() {
-          return this.getBorough() + ', NY ';
+          return this.getBorough() + ', NY';
         },
-        detailsHtml: function() {
-          return $('<div></div>')
-            .append('<div><strong>Opening:</strong>' + this.get('Date') + '</strong></div>')
-            .append('<div><strong>Times:</strong>' + this.get('Times') + '</strong></div>');
-        },
+        timeHtml: function() {
+          return $('<div class="when"><strong>Date and Time: </strong>' + 
+              this.get('Date') + ', ' + this.get('Times') + '</strong></div>');
+        }
       }],
       directionsUrl: 'https://maps.googleapis.com/maps/api/js?&sensor=false&libraries=visualization'
     });
