@@ -21,11 +21,10 @@
       splashOptions: {message: '<h2>Sample text</h2><p>Use HTML if you want.</p>'},
       geoclientUrl: geo_url,
       facilityUrl: 'ppe.csv',
-      facilityFormat: new nyc.ol.format.CsvAddr({
-        locationTemplate: '${Site}, ${Boro}',
-        geocoder: new nyc.Geoclient({
-          url: geo_url
-        })
+      facilityFormat: new nyc.ol.format.CsvPoint({
+        x: 'X',
+        y: 'Y',
+        dataProjection: 'EPSG:2263'
       }),
       decorations: [{
         getName: function() {
