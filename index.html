@@ -83,12 +83,19 @@
       geoclientUrl: geo_url,
       facilityUrl: 'location.csv?' + cacheBust,
       facilityStyle: style,
+      facilitySearch: { displayField: 'search_label', nameField: 'name' },
       facilityFormat: new nyc.ol.format.CsvPoint({
         x: 'X',
         y: 'Y',
         dataProjection: 'EPSG:2263'
       }),
       decorations: [{
+        extendFeature: function() {
+          this.set(
+            'search_label',
+            `<b><span class="srch-lbl-lg">${this.getName()}</span></b><br><span class="srch-lbl-sm">${this.getAddress1()}</span>`
+          )
+        },
         html: function() {
           return $('<div class="facility"></div>')
             .addClass(this.cssClass())
