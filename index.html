@@ -50,7 +50,7 @@
 </head>
 <body class="loading">
 	<script>
-    var geo_url = 'https://maps.nyc.gov/geoclient/v1/search.json?app_key=8B09B754F36069BC3&app_id=face-coverings'
+    var geo_url = 'https://maps.nyc.gov/geoclient/v1/search.json?app_key=8B09B754F36069BC3&app_id=face-coverings';
     var cacheBust = nyc.cacheBust(5);
 
     var style = new ol.style.Style({
@@ -126,7 +126,7 @@
           return this.getBorough() + ', NY';
         },
         getDate: function() {
-          var date = new Date(this.get('Date'))
+          var date = new Date(this.get('Date'));
           var days = [
             'Sunday',
             'Monday',
@@ -150,7 +150,7 @@
             'November',
             'December',
           ];
-          return `${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}`
+          return `${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}`;
         },
         timeHtml: function() {
           return $('<div class="when"><strong>Face covering distribution date: </strong><br>' + 
