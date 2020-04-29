@@ -24,9 +24,19 @@
     .lst-it:nth-child(even) div.when {
       background-color: #fff;
     }
-    .fnd #banner, .fnd .splash .dia, .tabs>.btns button.btn.active, .btn-sq {
+    .fnd #banner,
+    .fnd .splash .dia,
+    .tabs>.btns button.btn.active,
+    .btn-sq,
+    #back-to-map {
       background-color: #803D8D;
     }
+    .screen-reader-info .dia-msg :nth-child(11),
+    .screen-reader-info .dia-msg :nth-child(12),
+    .screen-reader-info .dia-msg :nth-child(13),
+    .screen-reader-info .dia-msg :nth-child(14) {
+        display: none;
+    }    
     @media only screen and (max-width : 400px) {
       .fnd #banner * {
       font-size: 17px;
