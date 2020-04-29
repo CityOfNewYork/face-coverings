@@ -43,6 +43,14 @@ div.route .adp-placemark * {
 .screen-reader-info .dia-msg :nth-child(14) {
     display: none;
 }
+@media only screen and (max-width: 750px), screen and (max-device-height: 350px) {
+  .fnd .lst-srch .srch {
+    display: block;
+    border-bottom: 1px solid #803D8D;
+    background-color: #803D8D;
+    width: 100%;
+  }
+}
 @media only screen and (max-width : 400px) {
   .fnd #banner * {
   font-size: 17px;
