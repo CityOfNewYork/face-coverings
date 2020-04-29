@@ -83,7 +83,7 @@
       geoclientUrl: geo_url,
       facilityUrl: 'location.csv?' + cacheBust,
       facilityStyle: style,
-      facilitySearch: { displayField: 'search_label', nameField: 'name' },
+      facilitySearch: { displayField: 'search_label', nameField: 'Park' },
       facilityFormat: new nyc.ol.format.CsvPoint({
         x: 'X',
         y: 'Y',
@@ -94,7 +94,7 @@
           this.set(
             'search_label',
             `<b><span class="srch-lbl-lg">${this.getName()}</span></b><br><span class="srch-lbl-sm">${this.getAddress1()}</span>`
-          )
+          );
         },
         html: function() {
           return $('<div class="facility"></div>')
@@ -158,6 +158,9 @@
             'December',
           ];
           return `${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}`;
+        },
+        getTip: function() {
+          return this.get('search_label');
         },
         timeHtml: function() {
           return $('<div class="when"><strong>Face covering distribution date: </strong><br>' + 
