@@ -26,6 +26,9 @@ div.route .adp-placemark * {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214px%22%20height%3D%2214px%22%3E%3Cpolygon%20points%3D%2210.596%2C11.949%205.646%2C7%2010.596%2C2.05%208.475%2C-0.071%201.404%2C7%208.475%2C14.07%20%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E");
   border: 1px solid #fff;
 }
+.ol-overlaycontainer-stopevent .srch input {
+  border: 1px solid #803D8D;
+}
 .btn-rnd {
   background-color: rgba(128,61,141,.55);
 }
