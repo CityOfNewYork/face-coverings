@@ -24,6 +24,9 @@
     .lst-it:nth-child(even) div.when {
       background-color: #fff;
     }
+    .fnd #banner, .fnd .splash .dia, .tabs>.btns button.btn.active, .btn-sq {
+      background-color: #803D8D;
+    }
     @media only screen and (max-width : 400px) {
       .fnd #banner * {
       font-size: 17px;
@@ -39,6 +42,14 @@
 	<script>
     var geo_url = 'https://maps.nyc.gov/geoclient/v1/search.json?app_key=8B09B754F36069BC3&app_id=face-coverings'
     var cacheBust = nyc.cacheBust(5);
+
+    var style = new ol.style.Style({
+        image: new ol.style.Circle({
+          radius: 8,
+          fill: new ol.style.Fill({color: 'rgba(128,61,141,.7)'}),
+          stroke: new ol.style.Stroke({width: 1, color: '#803D8D'})
+        })
+      });
 
     function zoomToExtent(app, coord) {
       var extent = new ol.geom.Point(coord).getExtent();
@@ -58,9 +69,10 @@
     new nyc.ol.FinderApp({
       title: 'Face Coverings Distribution',
       facilityTabTitle: 'Locations',
-      splashOptions: {message: '<h2>Sample text</h2><p>Use HTML if you want.</p>'},
+      splashOptions: {message: 'Face coverings are being distributed in parks across NYC. Find the closest location.'},
       geoclientUrl: geo_url,
       facilityUrl: 'location.csv?' + cacheBust,
+      facilityStyle: style,
       facilityFormat: new nyc.ol.format.CsvPoint({
         x: 'X',
         y: 'Y',
