@@ -96,9 +96,36 @@
         getCityStateZip: function() {
           return this.getBorough() + ', NY';
         },
+        getDate: function() {
+          var date = new Date(this.get('Date'))
+          var days = [
+            'Sunday',
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
+        ]
+          var months = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December',
+        ]
+          return `${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}`
+        },
         timeHtml: function() {
-          return $('<div class="when"><strong>Face covering distributions available: </strong><br>' + 
-              this.get('Date') + ', ' + this.get('Times') + '</strong></div>');
+          return $('<div class="when"><strong>Face covering distribution date: </strong><br>' + 
+              this.getDate() + ', ' + this.get('Times') + '</strong></div>');
         }
       }],
       directionsUrl: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBB0m1-hNGz_za3-BpD3uoc6JqwITWI_xg&channel=face-coverings&sensor=false&libraries=visualization'
