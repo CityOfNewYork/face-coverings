@@ -29,11 +29,25 @@
     .tabs>.btns button.btn.active,
     .btn-sq,
     #back-to-map,
-    .srch-ctl ul li:hover {
+    .srch-ctl ul li:hover,
+    .btn-rnd:hover,
+    #back-to-map.btn:before,
+    #back-to-map.btn:hover:before,
+    div.route .adp-placemark, 
+    div.route .adp-placemark * {
       background-color: #803D8D;
+    }
+    #back-to-map.btn:hover:before {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214px%22%20height%3D%2214px%22%3E%3Cpolygon%20points%3D%2210.596%2C11.949%205.646%2C7%2010.596%2C2.05%208.475%2C-0.071%201.404%2C7%208.475%2C14.07%20%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E");
+      border: 1px solid #fff;
     }
     .btn-rnd {
       background-color: rgba(128,61,141,.55);
+    }
+    #mode td .btn-sq.active, .btn-sq:hover {
+      background-color: rgba(128,61,141,.7);
+      border: 1px solid #803D8D;
+      box-shadow: 1px 1px 3px #803D8D;
     }
     .screen-reader-info .dia-msg :nth-child(11),
     .screen-reader-info .dia-msg :nth-child(12),
