@@ -1,5 +1,5 @@
 Park,Site,X,Y,Boro,Date,Times
-Prospect Park,Grand Army Plaza,997930,201674,BK,5/3/2020,10AM-12PM
+Prospect Park,Grand Army Plaza,992538,184830,BK,5/3/2020,10AM-12PM
 Prospect Park,Bartel Pritchard Square,989834,180097,BK,5/2/2020,10AM-12PM
 Prospect Park,Entrance at Parkside Ave and Ocean Ave,994826,177869,BK,5/2/2020,2PM-4PM
 McCarren Park,Play Center,997930,201674,BK,5/4/2020,10AM-12PM
@@ -8,7 +8,7 @@ Betsy Head Park,Thomas S Boyland St and Livonia Ave,1008740,180521,BK,5/4/2020,1
 Sunset Park,Recreation Center,983211,175350,BK,5/4/2020,2PM-4PM
 Coffey Park,Entrance at Richards St and Verona St,981946,186643,BK,5/4/2020,2PM-4PM
 Saint Johns Park,Recreation Center,1002317,184651,BK,5/5/2020,10AM-12PM
-Saratoga Park,Entrance at Macon Street between Saratoga Ave & Howard Ave,1006734,188707,BK,5/5/2020,2PM-4PM
+Saratoga Park,Entrance at Macon Street between Saratoga Ave and Howard Ave,1006734,188707,BK,5/5/2020,2PM-4PM
 Linden Park,Entrance at Linden Blvd and Vermont St,1015048,179487,BK,5/5/2020,10AM-12PM
 Saint Andrew's Playground,Entrance at Atlantic Ave and Kingston Ave,1000509,186298,BK,5/5/2020,2PM-4PM
 Crotona Park,Pool,1012551,245513,BX,5/2/2020,10AM-12PM
@@ -31,7 +31,7 @@ Hansborough Park,Recreation Center,1001047,235418,MN,5/4/2020,10AM-12PM
 East River Park,Promenade at 54 St,991442,202240,MN,5/4/2020,10AM-12PM
 Seward Park,Tony Dapolito Recreation Center,982742,205099,MN,5/4/2020,2PM-4PM
 Morningside Park,Morningside Avenue and W 114 St,995821,232160,MN,5/4/2020,2PM-4PM
-DeWitt Clinton Park,Field House off W 52 St between 11 Ave & 12 Ave,985989,218764,MN,5/5/2020,10AM-12PM
+DeWitt Clinton Park,Field House off W 52 St between 11 Ave and 12 Ave,985989,218764,MN,5/5/2020,10AM-12PM
 Asser Levy,Recreation Center,991043,207550,MN,5/5/2020,2PM-4PM
 Highbridge Park,Recreation Center,1002597,245726,MN,5/5/2020,10AM-12PM
 South Beach,Boardwalk at South Finn,965790,153961,SI,5/2/2020,10AM-12PM
@@ -39,8 +39,8 @@ Midland Beach,Splaza,960649,148105,SI,5/3/2020,10AM-12PM
 The Big Park,Grandview Ave and Continental Pl,938360,168950,SI,5/4/2020,10AM-12PM
 High Rock/Nature Center,Parking lot at the end of Nevada Ave,949975,151869,SI,5/4/2020,2PM-4PM
 Willowbrook,Entrance off Eton Place,940636,158880,SI,5/4/2020,10AM-12PM
-Corporal Thompson Park,Field House of Broadway between Markham Ln & Wayne St,951472,171961,SI,5/4/2020,2PM-4PM
-Bloomingdale Park,Field House off Lenevar Ave between Lamont Ave & Ramona Ave,926054,134292,SI,5/5/2020,10AM-12PM
+Corporal Thompson Park,Field House of Broadway between Markham Ln and Wayne St,951472,171961,SI,5/4/2020,2PM-4PM
+Bloomingdale Park,Field House off Lenevar Ave between Lamont Ave and Ramona Ave,926054,134292,SI,5/5/2020,10AM-12PM
 Clove Lakes,Outside Stonehenge,954932,164428,SI,5/5/2020,2PM-4PM
 Wolfe Pond,Parking Lot off Cornelia Ave,931418,127940,SI,5/5/2020,10AM-12PM
 Conference House Park,Visitor Center,914094,122370,SI,5/5/2020,2PM-4PM
@@ -48,7 +48,7 @@ Astoria Park,Field House at Running Track,1004969,221979,QNS,5/2/2020,10AM-12PM
 Flushing Meadows,David Dinkins Circle,1027745,213012,QNS,5/2/2020,10AM-12PM
 Flushing Meadows,Corona Golf Playground,1024631,211716,QNS,5/2/2020,10AM-12PM
 Flushing Meadows,NYS Pavilion,1027362,210222,QNS,5/2/2020,2PM-4PM
-Daniel O'Connell Playground,Field House off 113  Ave between 196 St & 197 St,1051283,194466,QNS,5/4/2020,10AM-12PM
+Daniel O'Connell Playground,Field House off 113  Ave between 196 St and 197 St,1051283,194466,QNS,5/4/2020,10AM-12PM
 Redfern Playground,Beach 12 St and Redfern Ave,1053807,162111,QNS,5/4/2020,2PM-4PM
 Springfield Park,146 Ter and 148 St,1049912,179966,QNS,5/4/2020,10AM-12PM
 Baisley Pond Park,155 St And Baisley Blvd,1044024,185182,QNS,5/4/2020,2PM-4PM
