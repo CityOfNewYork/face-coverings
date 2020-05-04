@@ -26,7 +26,7 @@
 <body class="loading">
 	<script>
     var geo_url = 'https://maps.nyc.gov/geoclient/v1/search.json?app_key=8B09B754F36069BC3&app_id=face-coverings';
-
+    var cacheBust = nyc.cacheBust(5)
     var style = new ol.style.Style({
         image: new ol.style.Circle({
           radius: 8,
@@ -55,7 +55,7 @@
       facilityTabTitle: 'Locations',
       splashOptions: {message: 'Face coverings are being distributed in parks across NYC. Find the closest location.'},
       geoclientUrl: geo_url,
-      facilityUrl: 'location.csv',
+      facilityUrl: 'location.csv?' + cacheBust,
       facilityStyle: style,
       facilitySearch: { displayField: 'search_label', nameField: 'Park' },
       facilityFormat: new nyc.ol.format.CsvPoint({
