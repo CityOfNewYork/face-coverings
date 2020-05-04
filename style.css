@@ -37,12 +37,6 @@ div.route .adp-placemark * {
   border: 1px solid #803D8D;
   box-shadow: 1px 1px 3px #803D8D;
 }
-.screen-reader-info .dia-msg :nth-child(11),
-.screen-reader-info .dia-msg :nth-child(12),
-.screen-reader-info .dia-msg :nth-child(13),
-.screen-reader-info .dia-msg :nth-child(14) {
-    display: none;
-}
 @media only screen and (max-width: 750px), screen and (max-device-height: 350px) {
   .fnd .lst-srch .srch {
     display: block;
