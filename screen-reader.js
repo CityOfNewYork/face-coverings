@@ -80,6 +80,7 @@ nyc.ol.FinderApp.SCREEN_READER_INFO = '<h1 style="color:red">Important</h1> ' +
 '</p> ' +
 '<h2>Accessibility Feedback</h2> ' +
 '<p> ' +
-  'If you have questions or feedback regarding the accessibility of this map, Contact the Digital ' +
-  'Accessibility Coordinator at the Mayor’s Office for People with Disabilities. ' +
-'</p>'
+  'If you have questions or feedback regarding the accessibility of this map, ' +
+  '<a href="https://www1.nyc.gov/nyc-resources/contact-the-citys-digital-accessibility-coordinator.page">' +
+  'contact the Digital Accessibility Coordinator</a> at the Mayor’s Office for People with Disabilities.' +
+'</p>';
