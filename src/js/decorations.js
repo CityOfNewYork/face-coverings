@@ -1,5 +1,8 @@
 import proj4 from 'proj4'
 
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
 export default [{
   extendFeature() {
     this.set(
@@ -23,23 +26,23 @@ export default [{
       .mouseout($.proxy(this.handleOut, this))
   },
   getFullAddress() {
-    const coord = proj4('EPSG:2263', 'EPSG:4326', [this.get('X') * 1, this.get('Y') * 1])
+    const coord = proj4('EPSG:2263', 'EPSG:4326', [this.get('x') * 1, this.get('y') * 1])
     return `${coord[1]},${coord[0]}`
   },
   getName() {
-    return this.get('Park')
+    return this.get('name')
   },
   getAddress1() {
-    return this.get('Site') || ''
+    return this.get('location') || ''
   },
   getBorough() {
     return {
-      MN: 'Manhattan',
-      BX: 'Bronx',
-      QNS: 'Queens',
-      BK: 'Brooklyn',
-      SI: 'Staten Island'
-    }[this.get('Boro')]
+      '1': 'Manhattan',
+      '2': 'Bronx',
+      '3': 'Brooklyn',
+      '4': 'Queens',
+      '5': 'Staten Island'
+    }[this.get('boro')]
   },
   getCityStateZip() {
     return `${this.getBorough()} , NY`
@@ -47,11 +50,19 @@ export default [{
   getTip() {
     return this.get('search_label')
   },
+  formatDate(col) {
+    const iso = this.get(col)
+    if (iso) {
+      const parts = iso.split('-')
+      const date = new Date(parts[0] * 1, parts[1] - 1, parts[2] * 1)
+      return `${DAYS[date.getDay()]}, ${MONTHS[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
+    } 
+  },
   timeHtml() {
-    const date1 = this.get('Date1')
-    const date2 = this.get('Date2')
-    const time1 = this.get('Time1')
-    const time2 = this.get('Time2')
+    const date1 = this.formatDate('date1')
+    const date2 = this.formatDate('date2')
+    const time1 = this.get('time1')
+    const time2 = this.get('time2')
     const result = $('<div class="when"><strong>Face covering distribution date: </strong></div>')
     if (date1) {
       result.append(`<div>${date1}, ${time1}</div>`)
