@@ -1,14 +1,14 @@
 import proj4 from 'proj4'
 
 export default [{
-  extendFeature: function() {
+  extendFeature() {
     this.set(
       'search_label',
       '<b><span class="srch-lbl-lg">' + this.getName() + 
       '</span></b><br><span class="srch-lbl-sm">' + this.getAddress1() + '</span>'
     )
   },
-  html: function() {
+  html() {
     return $('<div class="facility"></div>')
       .addClass(this.cssClass())
       .append(this.distanceHtml())
@@ -22,17 +22,17 @@ export default [{
       .mouseover($.proxy(this.handleOver, this))
       .mouseout($.proxy(this.handleOut, this))
   },
-  getFullAddress: function() {
+  getFullAddress() {
     const coord = proj4('EPSG:2263', 'EPSG:4326', [this.get('X') * 1, this.get('Y') * 1])
-    return coord[1] + ',' + coord[0]
+    return `${coord[1]},${coord[0]}`
   },
-  getName: function() {
+  getName() {
     return this.get('Park')
   },
-  getAddress1: function() {
+  getAddress1() {
     return this.get('Site') || ''
   },
-  getBorough: function() {
+  getBorough() {
     return {
       MN: 'Manhattan',
       BX: 'Bronx',
@@ -41,13 +41,13 @@ export default [{
       SI: 'Staten Island'
     }[this.get('Boro')]
   },
-  getCityStateZip: function() {
-    return this.getBorough() + ', NY'
+  getCityStateZip() {
+    return `${this.getBorough()} , NY`
   },
-  getTip: function() {
+  getTip() {
     return this.get('search_label')
   },
-  timeHtml: function() {
+  timeHtml() {
     const date1 = this.get('Date1')
     const date2 = this.get('Date2')
     const time1 = this.get('Time1')
@@ -57,6 +57,7 @@ export default [{
       result.append(`<div>${date1}, ${time1}</div>`)
     }
     if (date2) {
+      result.find('strong').html('Face covering distribution dates: ')
       result.append(`<div>${date2}, ${time2}</div>`)
     }
     return result
