@@ -2,9 +2,18 @@ import proj4 from 'proj4'
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const TODAY = new Date().toISOString().split('T')[0]
 
-export default [{
+const staleFeatures = []
+
+const decorations = {
   extendFeature() {
+    const date1 = this.get('date1') || '0000'
+    const date2 = this.get('date2') || '0000'
+    const fresh = date1 > TODAY || date2 > TODAY
+    if (!fresh) {
+      staleFeatures.push(this)
+    }
     this.set(
       'search_label',
       '<b><span class="srch-lbl-lg">' + this.getName() + 
@@ -61,16 +70,32 @@ export default [{
   timeHtml() {
     const date1 = this.formatDate('date1')
     const date2 = this.formatDate('date2')
-    const time1 = this.get('time1')
-    const time2 = this.get('time2')
+    const times = {
+      start_time1: this.get('start_time1'),
+      end_time1: this.get('end_time1'),
+      start_time2: this.get('start_time2'),
+      end_time2: this.get('end_time2')
+    }
+    Object.keys(times).forEach(key => {
+      const time = times[key].split(':')
+      if (time[0] > 12) {
+        times[key] = `${time[0] - 12}:${time[1]} PM`
+      } else {
+        times[key] = `${times[key]} AM`
+      }
+    })
     const result = $('<div class="when"><strong>Face covering distribution date: </strong></div>')
+    if (date1 && date2) {
+      result.find('strong').html('Face covering distribution dates: ')
+    }
     if (date1) {
-      result.append(`<div>${date1}, ${time1}</div>`)
+      result.append(`<div>${date1}, ${times.start_time1} - ${times.end_time1}</div>`)
     }
     if (date2) {
-      result.find('strong').html('Face covering distribution dates: ')
-      result.append(`<div>${date2}, ${time2}</div>`)
+      result.append(`<div>${date2}, ${times.start_time2} - ${times.end_time2}</div>`)
     }
     return result
   }
-}]
+}
+
+export default {decorations, staleFeatures}
