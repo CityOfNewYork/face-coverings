@@ -25,10 +25,8 @@ class App extends FinderApp {
     })
   }
   located (location) {
-    this.location = location
-    this.resetList()
-    this.pager.find('h2.info').attr('aria-live', 'polite')
-    zoomToExtent(this.location.coordinate)
+    super.located(location)
+    this.zoomToExtent(this.location.coordinate)
   }
   zoomToExtent(coord) {
     let extent = new ol.geom.Point(coord).getExtent()
