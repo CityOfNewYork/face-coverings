@@ -23,7 +23,7 @@ export default [{
       .mouseout($.proxy(this.handleOut, this))
   },
   getFullAddress: function() {
-    const coord = proj4('EPSG:2263', 'EPSG:4326', [this.get('X'), this.get('Y')])
+    const coord = proj4('EPSG:2263', 'EPSG:4326', [this.get('X') * 1, this.get('Y') * 1])
     return coord[1] + ',' + coord[0]
   },
   getName: function() {
