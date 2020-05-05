@@ -42,7 +42,7 @@ export default [{
     }[this.get('Boro')]
   },
   getCityStateZip() {
-    return `${this.getBorough()} , NY`
+    return `${this.getBorough()}, NY`
   },
   getTip() {
     return this.get('search_label')
