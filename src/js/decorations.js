@@ -6,7 +6,7 @@ export default [{
       'search_label',
       '<b><span class="srch-lbl-lg">' + this.getName() + 
       '</span></b><br><span class="srch-lbl-sm">' + this.getAddress1() + '</span>'
-    );
+    )
   },
   html: function() {
     return $('<div class="facility"></div>')
@@ -20,17 +20,17 @@ export default [{
       .append(this.directionsButton())
       .data('feature', this)
       .mouseover($.proxy(this.handleOver, this))
-      .mouseout($.proxy(this.handleOut, this));
+      .mouseout($.proxy(this.handleOut, this))
   },
   getFullAddress: function() {
-    var coord = proj4('EPSG:2263', 'EPSG:4326', [this.get('X'), this.get('Y')]);
-    return coord[1] + ',' + coord[0];
+    const coord = proj4('EPSG:2263', 'EPSG:4326', [this.get('X'), this.get('Y')])
+    return coord[1] + ',' + coord[0]
   },
   getName: function() {
-    return this.get('Park');
+    return this.get('Park')
   },
   getAddress1: function() {
-    return this.get('Site') || '';
+    return this.get('Site') || ''
   },
   getBorough: function() {
     return {
@@ -39,16 +39,26 @@ export default [{
       QNS: 'Queens',
       BK: 'Brooklyn',
       SI: 'Staten Island'
-    }[this.get('Boro')];
+    }[this.get('Boro')]
   },
   getCityStateZip: function() {
-    return this.getBorough() + ', NY';
+    return this.getBorough() + ', NY'
   },
   getTip: function() {
-    return this.get('search_label');
+    return this.get('search_label')
   },
   timeHtml: function() {
-    return $('<div class="when"><strong>Face covering distribution date: </strong><br>' + 
-        this.get('Date') + ', ' + this.get('Times') + '</strong></div>');
+    const date1 = this.get('Date1')
+    const date2 = this.get('Date1')
+    const time1 = this.get('Time1')
+    const time2 = this.get('Time2')
+    const result = $('<div class="when"><strong>Face covering distribution date: </strong></div>')
+    if (date1) {
+      result.append(`<div>${date1}, ${time1}</div>`)
+    }
+    if (date2) {
+      result.append(`<div>${date2}, ${time2}</div>`)
+    }
+    return result
   }
 }]

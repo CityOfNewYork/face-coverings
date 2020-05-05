@@ -31,8 +31,8 @@ class App extends FinderApp {
     zoomToExtent(this.location.coordinate)
   }
   zoomToExtent(coord) {
-    var extent = new ol.geom.Point(coord).getExtent()
-    var features = this.source.nearest(coord, 1)
+    let extent = new ol.geom.Point(coord).getExtent()
+    const features = this.source.nearest(coord, 1)
     extent = ol.extent.extend(extent, features[0].getGeometry().getExtent())
     extent = [extent[0] - 100, extent[1] - 100, extent[2] + 100, extent[3] + 100]
     this.view.fit(extent, {size: this.map.getSize(), duration: 500})

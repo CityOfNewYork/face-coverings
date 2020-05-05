@@ -1,21 +1,21 @@
-Park,Site,X,Y,Boro,Date,Times
-Saint John's Park,Recreation Center,1002317,184651,BK,"Tuesday, May 5",10AM-12PM
-Saratoga Park,Entrance at Macon St between Saratoga Ave and Howard Ave,1006734,188707,BK,"Tuesday, May 5",2PM-4PM
-Linden Park,Entrance at Linden Blvd and Vermont St,1015048,179487,BK,"Tuesday, May 5",10AM-12PM
-Saint Andrew's Playground,Entrance at Atlantic Ave and Kingston Ave,1000509,186298,BK,"Tuesday, May 5",2PM-4PM
-Saint James Park,Recreation Center,1012341,254608,BX,"Tuesday, May 5",12PM-2PM
-Saint Mary's Park,Recreation Center,1007997,234931,BX,"Tuesday, May 5",1PM-3PM
-Williamsbridge Oval,Recreation Center,1017822,258663,BX,"Tuesday, May 5",12PM-2PM
-Mullaly Park,Skate Park House,1005335,242928,BX,"Tuesday, May 5",1PM-3PM
-Poe Park,Visitor Center,1013399,254365,BX,"Tuesday, May 5",10AM-12PM
-De Witt Clinton Park,Field House off W 52 St between 11 Ave and 12 Ave,985680,218939,MN,"Tuesday, May 5",10AM-12PM
-Asser Levy,Recreation Center,991043,207550,MN,"Tuesday, May 5",2PM-4PM
-Highbridge Park,Recreation Center,1002597,245726,MN,"Tuesday, May 5",10AM-12PM
-Bloomingdale Park,Field House off Lenevar Ave between Lamont Ave and Ramona Ave,926308,134293,SI,"Tuesday, May 5",10AM-12PM
-Clove Lakes,Outside Stonehenge,954932,164428,SI,"Tuesday, May 5",2PM-4PM
-Wolfe's Pond Park,Parking Lot off Cornelia Ave,931897,128462,SI,"Tuesday, May 5",10AM-12PM
-Conference House Park,Visitor Center,914257,122360,SI,"Tuesday, May 5",2PM-4PM
-Sorrentino,Recreation Center,1053292,158859,QNS,"Tuesday, May 5",10AM-12PM
-Lost Battalion Hall,Recreation Center,1021516,205909,QNS,"Tuesday, May 5",2PM-4PM
-Mauro Playground,Park Dr East at 73 Ter,1032182,202770,QNS,"Tuesday, May 5",2PM-4PM
+Park,Site,X,Y,Boro,Date1,Time1,Date2,Time2,,
+Saint John's Park,Recreation Center,1002317,184651,BK,"Tuesday, May 5",10AM-12PM,"Thursday, May 7",12AM-2PM
+Saratoga Park,Entrance at Macon St between Saratoga Ave and Howard Ave,1006734,188707,BK,"Tuesday, May 5",2PM-4PM,,
+Linden Park,Entrance at Linden Blvd and Vermont St,1015048,179487,BK,"Tuesday, May 5",10AM-12PM,,
+Saint Andrew's Playground,Entrance at Atlantic Ave and Kingston Ave,1000509,186298,BK,"Tuesday, May 5",2PM-4PM,,
+Saint James Park,Recreation Center,1012341,254608,BX,"Tuesday, May 5",12PM-2PM,,
+Saint Mary's Park,Recreation Center,1007997,234931,BX,"Tuesday, May 5",1PM-3PM,,
+Williamsbridge Oval,Recreation Center,1017822,258663,BX,"Tuesday, May 5",12PM-2PM,,
+Mullaly Park,Skate Park House,1005335,242928,BX,"Tuesday, May 5",1PM-3PM,,
+Poe Park,Visitor Center,1013399,254365,BX,"Tuesday, May 5",10AM-12PM,,
+De Witt Clinton Park,Field House off W 52 St between 11 Ave and 12 Ave,985680,218939,MN,"Tuesday, May 5",10AM-12PM,,
+Asser Levy,Recreation Center,991043,207550,MN,"Tuesday, May 5",2PM-4PM,,
+Highbridge Park,Recreation Center,1002597,245726,MN,"Tuesday, May 5",10AM-12PM,,
+Bloomingdale Park,Field House off Lenevar Ave between Lamont Ave and Ramona Ave,926308,134293,SI,"Tuesday, May 5",10AM-12PM,,
+Clove Lakes,Outside Stonehenge,954932,164428,SI,"Tuesday, May 5",2PM-4PM,,
+Wolfe's Pond Park,Parking Lot off Cornelia Ave,931897,128462,SI,"Tuesday, May 5",10AM-12PM,,
+Conference House Park,Visitor Center,914257,122360,SI,"Tuesday, May 5",2PM-4PM,,
+Sorrentino,Recreation Center,1053292,158859,QNS,"Tuesday, May 5",10AM-12PM,,
+Lost Battalion Hall,Recreation Center,1021516,205909,QNS,"Tuesday, May 5",2PM-4PM,,
+Mauro Playground,Park Dr East at 73 Ter,1032182,202770,QNS,"Tuesday, May 5",2PM-4PM,,
 Queensbridge Park,41 Ave and Vernon Blvd,998770,214938,QNS,"Tuesday, May 5",10AM-12PM
