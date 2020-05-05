@@ -3,6 +3,8 @@ import style from './style'
 import decorations from './decorations'
 import CsvPoint from 'nyc-lib/nyc/ol/format/CsvPoint'
 import FinderApp from 'nyc-lib/nyc/ol/FinderApp'
+import Point from 'ol/geom/Point'
+import {extend} from 'ol/extent'
 import screenReaderInfo from './screen-reader'
 
 class App extends FinderApp {
@@ -29,9 +31,9 @@ class App extends FinderApp {
     this.zoomToExtent(this.location.coordinate)
   }
   zoomToExtent(coord) {
-    let extent = new ol.geom.Point(coord).getExtent()
+    let extent = new Point(coord).getExtent()
     const features = this.source.nearest(coord, 1)
-    extent = ol.extent.extend(extent, features[0].getGeometry().getExtent())
+    extent = extend(extent, features[0].getGeometry().getExtent())
     extent = [extent[0] - 100, extent[1] - 100, extent[2] + 100, extent[3] + 100]
     this.view.fit(extent, {size: this.map.getSize(), duration: 500})
   }
