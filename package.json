@@ -1,6 +1,6 @@
 {
   "name": "face-coverings",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Face coverings are being distributed in parks across NYC. Find the closest location.",
   "main": "index.js",
   "scripts": {
