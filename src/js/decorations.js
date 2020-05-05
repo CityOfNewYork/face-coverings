@@ -49,7 +49,7 @@ export default [{
   },
   timeHtml: function() {
     const date1 = this.get('Date1')
-    const date2 = this.get('Date2 ')
+    const date2 = this.get('Date2')
     const time1 = this.get('Time1')
     const time2 = this.get('Time2')
     const result = $('<div class="when"><strong>Face covering distribution date: </strong></div>')
