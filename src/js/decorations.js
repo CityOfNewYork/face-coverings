@@ -45,7 +45,7 @@ export default [{
     }[this.get('boro')]
   },
   getCityStateZip() {
-    return `${this.getBorough()} , NY`
+    return `${this.getBorough()}, NY`
   },
   getTip() {
     return this.get('search_label')
