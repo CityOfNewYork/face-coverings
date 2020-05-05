@@ -4,9 +4,9 @@ FinderApp.SCREEN_READER_INFO = `<h1 style="color:red">Important</h1>
 <p style="color:red">
   The following instructions are meant for people with disabilities who use assistive technology.
   For all other inquiries please contact <a style="color:red" href="tel:311">311</a>.<br>
-/p>
-'<p style="text-align:center">
-  <a class="btn rad-all btn-ok" href="javascript:$(\'.screen-reader-info .btn.rad-all.btn-ok\').click()" style="display: inline-block;">' +
+</p>
+<p style="text-align:center">
+  <a class="btn rad-all btn-ok" href="javascript:$('.screen-reader-info .btn.rad-all.btn-ok').click()" style="display: inline-block;">
     Return to the map
   </a>
 </p>
