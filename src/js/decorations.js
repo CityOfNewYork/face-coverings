@@ -10,8 +10,9 @@ const decorations = {
   extendFeature() {
     const date1 = this.get('date1') || '0000'
     const date2 = this.get('date2') || '0000'
-    const fresh = date1 > TODAY || date2 > TODAY
+    const fresh = date1 >= TODAY || date2 >= TODAY
     if (!fresh) {
+      console.warn('Stale Location:', this.getProperties())
       staleFeatures.push(this)
     }
     this.set(
@@ -78,8 +79,10 @@ const decorations = {
     }
     Object.keys(times).forEach(key => {
       const time = times[key].split(':')
-      if (time[0] > 12) {
+      if (time[0] * 1 > 12) {
         times[key] = `${time[0] - 12}:${time[1]} PM`
+      } else if (time[0] * 1 === 12) {
+        times[key] = `${times[key]} PM`
       } else {
         times[key] = `${times[key]} AM`
       }
