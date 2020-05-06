@@ -23,13 +23,13 @@ class App extends FinderApp {
       geoclientUrl: urls.GEOCLIENT_URL,
       facilityUrl: urls.FACILITY_CSV_URL,
       facilityStyle: style,
-      facilitySearch: { displayField: 'search_label', nameField: 'Park' },
+      facilitySearch: { displayField: 'search_label', nameField: 'name' },
       facilityFormat: new CsvPoint({
-        x: 'X',
-        y: 'Y',
+        x: 'x',
+        y: 'y',
         dataProjection: 'EPSG:2263'
       }),
-      decorations,
+      decorations: [decorations.decorations],
       directionsUrl: urls.DIRECTIONS_URL
     })
   }
@@ -43,6 +43,12 @@ class App extends FinderApp {
     extent = extend(extent, features[0].getGeometry().getExtent())
     extent = [extent[0] - 100, extent[1] - 100, extent[2] + 100, extent[3] + 100]
     this.view.fit(extent, {size: this.map.getSize(), duration: 500})
+  }
+  ready(features) {
+    decorations.staleFeatures.forEach(feature => {
+      this.source.removeFeature(feature)
+    })
+    super.ready(this.source.getFeatures())
   }
 }
 
