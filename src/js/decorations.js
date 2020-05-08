@@ -89,12 +89,8 @@ const decorations = {
       {date: date2, start: this.get('start_time2'), end: this.get('end_time2')}
     ]
     dates.sort((a, b) => {
-      if (`${a.date} ${a.start}` > `${b.date} ${b.start}`) {        
-        return 1
-      }
-      if (`${a.date} ${a.start}` < `${b.date} ${b.start}`) {
-        return -1
-      }
+      if (`${a.date} ${a.start}` > `${b.date} ${b.start}`) return 1
+      if (`${a.date} ${a.start}` < `${b.date} ${b.start}`) return -1
       return 0
     })
     dates.forEach(date => {
