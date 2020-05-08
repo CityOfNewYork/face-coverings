@@ -60,43 +60,48 @@ const decorations = {
   getTip() {
     return this.get('search_label')
   },
-  formatDate(col) {
-    const iso = this.get(col)
+  formatDate(iso) {
     if (iso) {
       const parts = iso.split('-')
       const date = new Date(parts[0] * 1, parts[1] - 1, parts[2] * 1)
       return `${DAYS[date.getDay()]}, ${MONTHS[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
     } 
   },
-  timeHtml() {
-    const date1 = this.formatDate('date1')
-    const date2 = this.formatDate('date2')
-    const times = {
-      start_time1: this.get('start_time1'),
-      end_time1: this.get('end_time1'),
-      start_time2: this.get('start_time2'),
-      end_time2: this.get('end_time2')
-    }
-    Object.keys(times).forEach(key => {
-      const time = times[key].split(':')
+  formatTime(hh24) {
+    if (hh24) {
+      const time = hh24.split(':')
       if (time[0] * 1 > 12) {
-        times[key] = `${time[0] - 12}:${time[1]} PM`
+        return `${time[0] - 12}:${time[1]} PM`
       } else if (time[0] * 1 === 12) {
-        times[key] = `${times[key]} PM`
+        return `${hh24} PM`
       } else {
-        times[key] = `${times[key]} AM`
+        return `${time[0] * 1}:${time[1]} AM`
+      }
+    } 
+  },
+  timeHtml() {
+    const date1 = this.get('date1')
+    const date2 = this.get('date2')
+    const text = date1 >= TODAY && date2 >= TODAY ? 'dates' : 'date'
+    const result = $(`<div class="when"><strong>Face covering distribution ${text}: </strong></div>`)
+    const dates = [
+      {date: date1, start: this.get('start_time1'), end: this.get('end_time1')}, 
+      {date: date2, start: this.get('start_time2'), end: this.get('end_time2')}
+    ]
+    dates.sort((a, b) => {
+      if (`${a.date} ${a.start}` > `${b.date} ${b.start}`) {        
+        return 1
+      }
+      if (`${a.date} ${a.start}` < `${b.date} ${b.start}`) {
+        return -1
+      }
+      return 0
+    })
+    dates.forEach(date => {
+      if (date.date >= TODAY) {
+        result.append(`<div>${this.formatDate(date.date)}, ${this.formatTime(date.start)} - ${this.formatTime(date.end)}</div>`)
       }
     })
-    const result = $('<div class="when"><strong>Face covering distribution date: </strong></div>')
-    if (date1 && date2) {
-      result.find('strong').html('Face covering distribution dates: ')
-    }
-    if (date1) {
-      result.append(`<div>${date1}, ${times.start_time1} - ${times.end_time1}</div>`)
-    }
-    if (date2) {
-      result.append(`<div>${date2}, ${times.start_time2} - ${times.end_time2}</div>`)
-    }
     return result
   }
 }
