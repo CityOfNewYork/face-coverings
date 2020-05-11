@@ -10,14 +10,14 @@ const TOMORROW = new Date(new Date(TODAY).getTime() + 8.64e+7).toISOString().spl
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
-let superFreshFeature, mostlyFreshFeature, staleFeature
+let superFreshFeature1, superFreshFeature2, mostlyFreshFeature, staleFeature
 
 const resetFeatures = () => {
-  superFreshFeature = new Feature({
+  superFreshFeature1 = new Feature({
     x: '1017986',
     y: '237820',
-    name: 'SUPER FRESH',
-    location: 'SUPER FRESH location',
+    name: 'SUPER FRESH 1',
+    location: 'SUPER FRESH 1 location',
     boro: '2',
     date1: TOMORROW,
     start_time1: '10:00',
@@ -26,6 +26,19 @@ const resetFeatures = () => {
     start_time2: '14:00',
     end_time2: '16:00'
   })
+  superFreshFeature2 = new Feature({
+    x: '1053807',
+    y: '162110',
+    name: 'SUPER FRESH 2',
+    location: 'SUPER FRESH 2 location',
+    boro: '1',
+    date1: TODAY,
+    start_time1: '10:00',
+    end_time1: '12:00',
+    date2: TODAY,
+    start_time2: '10:00',
+    end_time2: '15:00'
+  })  
   mostlyFreshFeature = new Feature({
     x: '1053807',
     y: '162110',
@@ -45,9 +58,9 @@ const resetFeatures = () => {
     name: 'STALE',
     location: 'STALE location',
     boro: '5',
-    date1: YESTERDAY,
-    start_time1: '10:00',
-    end_time1: '12:00',
+    date1: '',
+    start_time1: '',
+    end_time1: '',
     date2: YESTERDAY,
     start_time2: '14:00',
     end_time2: '16:00'
@@ -66,19 +79,20 @@ beforeEach(() => {
   decorations.decorations.handleOver = jest.fn()
   decorations.decorations.handleOut = jest.fn()
   decorations.decorations.handleOver = jest.fn()
-  Object.assign(superFreshFeature, decorations.decorations)
+  Object.assign(superFreshFeature1, decorations.decorations)
   Object.assign(mostlyFreshFeature, decorations.decorations)
+  Object.assign(superFreshFeature2, decorations.decorations)
   Object.assign(staleFeature, decorations.decorations)
 })
 
 test('extendFeature', () => {
   expect.assertions(5)
 
-  superFreshFeature.extendFeature()
+  superFreshFeature1.extendFeature()
   expect(decorations.staleFeatures.length).toBe(0)
-  expect(superFreshFeature.get('search_label')).toBe(
-    '<b><span class="srch-lbl-lg">' + superFreshFeature.getName() + 
-    '</span></b><br><span class="srch-lbl-sm">' + superFreshFeature.getAddress1() + '</span>'
+  expect(superFreshFeature1.get('search_label')).toBe(
+    '<b><span class="srch-lbl-lg">' + superFreshFeature1.getName() + 
+    '</span></b><br><span class="srch-lbl-sm">' + superFreshFeature1.getAddress1() + '</span>'
   )
 
   mostlyFreshFeature.extendFeature()
@@ -95,22 +109,22 @@ test('extendFeature', () => {
 test('getFullAddress', () => {
   expect.assertions(1)
   
-  const coord = proj4('EPSG:2263', 'EPSG:4326', [superFreshFeature.get('x') * 1, superFreshFeature.get('y') * 1])
+  const coord = proj4('EPSG:2263', 'EPSG:4326', [superFreshFeature1.get('x') * 1, superFreshFeature1.get('y') * 1])
 
-  expect(superFreshFeature.getFullAddress()).toBe(coord[1] + ',' + coord[0])
+  expect(superFreshFeature1.getFullAddress()).toBe(coord[1] + ',' + coord[0])
 })
 
 test('getName', () => {
   expect.assertions(2)
 
-  expect(superFreshFeature.getName()).toBe('SUPER FRESH')
+  expect(superFreshFeature1.getName()).toBe('SUPER FRESH 1')
   expect(mostlyFreshFeature.getName()).toBe('MOSTLY FRESH')
 })
 
 test('getAddress1', () => {
   expect.assertions(2)
 
-  expect(superFreshFeature.getAddress1()).toBe('SUPER FRESH location')
+  expect(superFreshFeature1.getAddress1()).toBe('SUPER FRESH 1 location')
   expect(mostlyFreshFeature.getAddress1()).toBe('MOSTLY FRESH location')
 })
 
@@ -118,7 +132,7 @@ test('getBorough', () => {
   expect.assertions(5)
 
   expect(mostlyFreshFeature.getBorough()).toBe('Manhattan')
-  expect(superFreshFeature.getBorough()).toBe('Bronx')
+  expect(superFreshFeature1.getBorough()).toBe('Bronx')
   expect(Object.assign(new Feature({boro: '3'}), decorations.decorations).getBorough()).toBe('Brooklyn')
   expect(Object.assign(new Feature({boro: '4'}), decorations.decorations).getBorough()).toBe('Queens')
   expect(staleFeature.getBorough()).toBe('Staten Island')
@@ -137,41 +151,46 @@ test('getTip', () => {
 })
 
 test('formatDate', () => {
-  expect.assertions(1)
+  expect.assertions(2)
 
   const iso = '2020-05-10'
   const parts = iso.split('-')
   const date = new Date(parts[0] * 1, parts[1] - 1, parts[2] * 1)
 
-  expect(superFreshFeature.formatDate(iso)).toBe(`${DAYS[date.getDay()]}, ${MONTHS[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`)
+  expect(superFreshFeature1.formatDate(iso)).toBe(`${DAYS[date.getDay()]}, ${MONTHS[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`)
+  expect(superFreshFeature1.formatDate()).toBeUndefined()
 })
 
 test('formatTime', () => {
-  expect.assertions(3)
+  expect.assertions(4)
 
-  expect(superFreshFeature.formatTime('09:30')).toBe('9:30 AM')
-  expect(superFreshFeature.formatTime('12:00')).toBe('12:00 PM')
-  expect(superFreshFeature.formatTime('13:00')).toBe('1:00 PM')
+  expect(superFreshFeature1.formatTime('09:30')).toBe('9:30 AM')
+  expect(superFreshFeature1.formatTime('12:00')).toBe('12:00 PM')
+  expect(superFreshFeature1.formatTime('13:00')).toBe('1:00 PM')
+  expect(superFreshFeature1.formatTime('')).toBeUndefined()
 })
 
 test('timeHtml', () => {
-  expect.assertions(2)
+  expect.assertions(3)
 
   const div = $('<div></div>')
 
-  div.html(superFreshFeature.timeHtml())
+  div.html(superFreshFeature1.timeHtml())
   expect(div.html()).toBe('<div class="when"><strong>Face covering distribution dates: </strong><div>Monday, May 11, 2020, 2:00 PM - 4:00 PM</div><div>Tuesday, May 12, 2020, 10:00 AM - 12:00 PM</div></div>')
 
   div.html(mostlyFreshFeature.timeHtml())
   expect(div.html()).toBe('<div class="when"><strong>Face covering distribution date: </strong><div>Monday, May 11, 2020, 2:00 PM - 4:00 PM</div></div>')
+
+  div.html(superFreshFeature2.timeHtml())
+  expect(div.html()).toBe('<div class="when"><strong>Face covering distribution dates: </strong><div>Monday, May 11, 2020, 10:00 AM - 12:00 PM</div><div>Monday, May 11, 2020, 10:00 AM - 3:00 PM</div></div>')
 })
 
 test('html', () => {
   expect.assertions(6)
 
-  const html = superFreshFeature.html()
+  const html = superFreshFeature1.html()
 
-  expect(html.data('feature')).toBe(superFreshFeature)
+  expect(html.data('feature')).toBe(superFreshFeature1)
 
   expect(decorations.decorations.handleOver).toHaveBeenCalledTimes(0)
   html.trigger('mouseover')
