@@ -10,56 +10,65 @@ const TOMORROW = new Date(new Date(TODAY).getTime() + 8.64e+7).toISOString().spl
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
-const superFreshFeature = new Feature({
-  x: '1017986',
-  y: '237820',
-  name: 'SUPER FRESH',
-  location: 'SUPER FRESH location',
-  boro: '2',
-  date1: TOMORROW,
-  start_time1: '10:00',
-  end_time1: '12:00',
-  date2: TODAY,
-  start_time2: '14:00',
-  end_time2: '16:00'
-})
+let superFreshFeature, mostlyFreshFeature, staleFeature
 
-const mostlyFreshFeature = new Feature({
-  x: '1053807',
-  y: '162110',
-  name: 'MOSTLY FRESH',
-  location: 'MOSTLY FRESH location',
-  boro: '1',
-  date1: YESTERDAY,
-  start_time1: '10:00',
-  end_time1: '12:00',
-  date2: TODAY,
-  start_time2: '14:00',
-  end_time2: '16:00'
-})
+const resetFeatures = () => {
+  superFreshFeature = new Feature({
+    x: '1017986',
+    y: '237820',
+    name: 'SUPER FRESH',
+    location: 'SUPER FRESH location',
+    boro: '2',
+    date1: TOMORROW,
+    start_time1: '10:00',
+    end_time1: '12:00',
+    date2: TODAY,
+    start_time2: '14:00',
+    end_time2: '16:00'
+  })
+  mostlyFreshFeature = new Feature({
+    x: '1053807',
+    y: '162110',
+    name: 'MOSTLY FRESH',
+    location: 'MOSTLY FRESH location',
+    boro: '1',
+    date1: YESTERDAY,
+    start_time1: '10:00',
+    end_time1: '12:00',
+    date2: TODAY,
+    start_time2: '14:00',
+    end_time2: '16:00'
+  })
+  staleFeature = new Feature({
+    x: '5',
+    y: '6',
+    name: 'STALE',
+    location: 'STALE location',
+    boro: '5',
+    date1: YESTERDAY,
+    start_time1: '10:00',
+    end_time1: '12:00',
+    date2: YESTERDAY,
+    start_time2: '14:00',
+    end_time2: '16:00'
+  })
+}
 
-const staleFeature = new Feature({
-  x: '5',
-  y: '6',
-  name: 'STALE',
-  location: 'STALE location',
-  boro: '5',
-  date1: YESTERDAY,
-  start_time1: '10:00',
-  end_time1: '12:00',
-  date2: YESTERDAY,
-  start_time2: '14:00',
-  end_time2: '16:00'
-})
-
-Object.assign(superFreshFeature, decorations.decorations)
-Object.assign(mostlyFreshFeature, decorations.decorations)
-Object.assign(staleFeature, decorations.decorations)
 
 beforeEach(() => {
+  resetFeatures()
   decorations.staleFeatures.length = 0
+  decorations.decorations.distanceHtml = jest.fn()
+  decorations.decorations.nameHtml = jest.fn()
+  decorations.decorations.addressHtml = jest.fn()
+  decorations.decorations.mapButton = jest.fn()
+  decorations.decorations.directionsButton = jest.fn()
   decorations.decorations.handleOver = jest.fn()
   decorations.decorations.handleOut = jest.fn()
+  decorations.decorations.handleOver = jest.fn()
+  Object.assign(superFreshFeature, decorations.decorations)
+  Object.assign(mostlyFreshFeature, decorations.decorations)
+  Object.assign(staleFeature, decorations.decorations)
 })
 
 test('extendFeature', () => {
@@ -158,7 +167,7 @@ test('timeHtml', () => {
 })
 
 test('html', () => {
-  expect.assertions(5)
+  expect.assertions(6)
 
   const html = superFreshFeature.html()
 
@@ -168,9 +177,9 @@ test('html', () => {
   html.trigger('mouseover')
   expect(decorations.decorations.handleOver).toHaveBeenCalledTimes(1)
 
-  expect(decorations.decorations.mouseout).toHaveBeenCalledTimes(0)
-  html.trigger('mouseover')
-  expect(decorations.decorations.mouseout).toHaveBeenCalledTimes(1)
+  expect(decorations.decorations.handleOut).toHaveBeenCalledTimes(0)
+  html.trigger('mouseout')
+  expect(decorations.decorations.handleOut).toHaveBeenCalledTimes(1)
 
-  expect($('<div></div>').html(html)).toBe('')
+  expect($('<div></div>').html(html).html()).toBe('<div class="facility"><div class="when"><strong>Face covering distribution dates: </strong><div>Monday, May 11, 2020, 2:00 PM - 4:00 PM</div><div>Tuesday, May 12, 2020, 10:00 AM - 12:00 PM</div></div></div>')
 })
