@@ -1,4 +1,6 @@
+import $ from 'jquery'
 import proj4 from 'proj4'
+import nyc from 'nyc-lib/nyc'
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -8,8 +10,8 @@ const staleFeatures = []
 
 const decorations = {
   extendFeature() {
-    const date1 = this.get('date1') || '0000'
-    const date2 = this.get('date2') || '0000'
+    const date1 = this.get('date1')
+    const date2 = this.get('date2')
     const fresh = date1 >= TODAY || date2 >= TODAY
     if (!fresh) {
       console.warn('Stale Location:', this.getProperties())
@@ -43,7 +45,7 @@ const decorations = {
     return this.get('name')
   },
   getAddress1() {
-    return this.get('location') || ''
+    return this.get('location')
   },
   getBorough() {
     return {
