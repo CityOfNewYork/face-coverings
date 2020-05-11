@@ -1,6 +1,6 @@
 {
   "name": "face-coverings",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Face coverings are being distributed in parks across NYC. Find the closest location.",
   "main": "index.js",
   "scripts": {
@@ -22,9 +22,8 @@
   },
   "homepage": "https://github.com/CityOfNewYork/face-coverings#readme",
   "dependencies": {
-    "jquery": "^3.3.1",
-    "nyc-lib": "^1.3.79",
-    "ol": "^6.2.1",
+    "nyc-lib": "^1.3.87",
+    "ol": "6.1.0",
     "papaparse": "^4.5.1",
     "proj4": "^2.4.4"
   },
@@ -38,6 +37,7 @@
     "jest": "^24.8.0",
     "jest-canvas-mock": "^2.2.0",
     "jest-fetch-mock": "^1.6.5",
+    "jquery": "^3.5.1",
     "nyc-build-helper": "^0.0.38",
     "webpack": "4.19.1",
     "webpack-cli": "2.0.14"
