@@ -1,42 +1,29 @@
 Park,Site,Boro,Date1,Time1,Date2,Time2,X,Y
 Alfred E. Smith,Recreation Center,MN,,,"Sunday, May 10",10AM-12PM,984992,198148
-Alley Pond Park,76 Ave and Springfield Blvd,QNS,,,"Saturday, May 9",10AM-12PM,1053557,208917
 Asser Levy,Recreation Center,MN,,,"Tuesday, May 12",10AM-12PM,990925.6569,207516.1404
 Astoria Park,Field House at Running Track,QNS,,,"Sunday, May 10",10AM-12PM,1004969,221979
 Baisley Pond Park,155 St And Baisley Blvd,QNS,,,"Tuesday, May 12",2PM-4PM,1044024,185182
 Betsy Head Park,Herzl St and Dumont Ave,BK,,,"Tuesday, May 12",10AM-12PM,1008115,180954
-Bronx Park East,Entrance at Bronx Park E and Boston Road,BX,,,"Saturday, May 9",10AM-12PM,1020203,251170
 Capt. Roscoe Brown Plaza,W 179th St and University Ave,BX,,,"Tuesday, May 12",10AM-12PM,1008876,250734
-Central Park,W 100 St Ramp,MN,,,"Saturday, May 9",2PM-4PM,994544,228641
 Central Park,Lenox Ave Ramp,MN,,,"Sunday, May 10",10AM-12PM,997412,230102
-Central Park,Tavern on the Green,MN,,,"Saturday, May 9",10AM-12PM,990580,220835
 Cherry Tree Park,3rd Ave and 99th St,MN,,,"Tuesday, May 12",10AM-12PM,998722,226053
 Clove Lakes,Outside Stonehenge,SI,,,"Sunday, May 10",2PM-4PM,954932,164428
 Coffey Park,Entrance at Richards St and Verona St,BK,,,"Monday, May 11",10AM-12PM,981946,186643
 Col. Young Park,W 145 and Malcolm X Blvd,MN,,,"Tuesday, May 12",10AM-12PM,1001938,238107
 Coney Island Boardwalk,Steeplechase Plaza (West 16th St and Rigelmann Boardwalk),BK,,,"Sunday, May 10",10AM-12PM,988984,148017
 Conference House Park,Visitor Center,SI,,,"Tuesday, May 12",2PM-4PM,914257,122360
-Crocheron Park,Field House at 33rd Rd and 215th Pl,QNS,,,"Saturday, May 9",10AM-12PM,1048128,220616
 Crotona Park,Crotona Park East and E 173rd Street,BX,,,"Sunday, May 10",10AM-12PM,1014521,244205
-Crotona Park,Pool,BX,,,"Saturday, May 9",10AM-12PM,1012551,245513
-Crotona Park,Tennis,BX,,,"Saturday, May 9",2PM-4PM,1013209,245346
 Cunningham Park,Parking Lot (Union Turnpike at 196th Pl),QNS,,,"Sunday, May 10",2PM-4PM,1047011,205573
 Daniel O'Connell Playground,Field House off 113 Ave between 196 St and 197 St,QNS,,,"Monday, May 11",2PM-4PM,1051283,194466
 DeWitt Clinton Park,Field House in Park off W 52 St between 11 Ave and 12 Ave,MN,,,"Tuesday, May 12",2PM-4PM,985733.6187,219154.8631
-East River Park,Promenade at E 6th St,MN,,,"Saturday, May 9",2PM-4PM,991442,202240
 Edward Byrne Park,133-38 135th Ave,QNS,,,"Tuesday, May 12",2PM-4PM,1037746,182520
-Flushing Meadows,Corona Golf Playground,QNS,,,"Saturday, May 9",2PM-4PM,1024631,211716
 Flushing Meadows,NYS Pavilion,QNS,,,"Sunday, May 10",10AM-12PM,1027362,210222
-Flushing Meadows,Dinkins Circle,QNS,,,"Saturday, May 9",10AM-12PM,1027745,213012
 Forest Park,Visitor Center (Woodhaven Blvd and Forest Park Dr),QNS,,,"Sunday, May 10",10AM-12PM,1024400,194605
 Fort Hamilton,Senior Recreation Center (9941 Fort Hamilton Pkwy),BK,,,"Tuesday, May 12",10AM-12PM,975315,161981
-Greenbelt Recreation Center,501 Brielle Avenue,SI,,,"Saturday, May 9",2PM-4PM,945565,154890
-Highbridge Park,Recreation Center,MN,,,"Saturday, May 9",10AM-12PM,1002374,246388
 Howard Bennett Playground,32 W 136 Street,MN,,,"Monday, May 11",2PM-4PM,1001136,235750
 Inwood Hill Park,218th St and Indian Rd,MN,,,"Sunday, May 10",2PM-4PM,1006800,257355
 J. Hood Wright,Recreation Center,MN,,,"Monday, May 11",2PM-4PM,1000503,247698
 Lost Battalion Hall,Recreation Center,QNS,,,"Tuesday, May 12",2PM-4PM,1021516,205909
-Marcus Garvey Park,Pelham Fritz Recreation Center,MN,,,"Saturday, May 9",10AM-12PM,1000066.512,232769.1837
 Mauro Playground,Park Dr East at 73 Ter,QNS,,,"Monday, May 11",10AM-12PM,1032182,202770
 McCarren Park,Entrance at Bedford Ave and Lorimer St,BK,,,"Monday, May 11",2PM-4PM,997652,202865
 McCarren Park,Play Center (776 Lorimer St),BK,,,"Monday, May 11",10AM-12PM,998052.0324,201633.7225
@@ -47,7 +34,6 @@ Pelham Bay Park,Parking Lot at Stadium Ave and Middletown Rd,BX,,,"Sunday, May 1
 Poe Park,Visitor Center,BX,,,"Tuesday, May 12",10AM-12PM,1013399,254365
 Prospect Park,Grand Army Plaza,BK,,,"Sunday, May 10",10AM-12PM,992538,184830
 Prospect Park,Entrance at Parkside Ave and Ocean Ave,BK,,,"Sunday, May 10",2PM-4PM,994826,177869
-Prospect Park,Bartel Pritchard Lot,BK,,,"Saturday, May 9",2PM-4PM,990021.8537,180138.5943
 Queensbridge Park,41 Ave and Vernon Blvd,QNS,,,"Monday, May 11",2PM-4PM,998770,214938
 Rainey Park,Field House on Dawson St off Longwood Ave,BX,,,"Monday, May 11",10AM-12PM,1012381,237585
 Redfern Playground,Beach 12 St and Redfern Ave,QNS,,,"Monday, May 11",10AM-12PM,1053807,162111
@@ -56,14 +42,11 @@ Saratoga Park,Entrance at Macon St between Saratoga Ave and Howard Ave,BK,,,"Tue
 Seward Park,Canal St and Essex St,MN,,,"Monday, May 11",10AM-12PM,986996,199570
 Sorrentino,Recreation Center,QNS,,,"Tuesday, May 12",10AM-12PM,1053292,158859
 Soundview Park,Field House on Lafayette Ave between Colgate Ave and Boynton Ave,BX,,,"Monday, May 11",2PM-4PM,1017986,237821
-South Beach,Boardwalk at South Fin Grill,SI,,,"Saturday, May 9",10AM-12PM,965790,153961
 Springfield Park,146 Ter and 184 St,QNS,,,"Tuesday, May 12",10AM-12PM,1049912,179966
 St. Andrew's Playground,Entrance on Kingston between Atlantic and Herkimer (Around 33 Kingston),BK,,,"Tuesday, May 12",2PM-4PM,1000499.115,186556.4878
 St. Johns Park,Recreation Center,BK,,,"Monday, May 11",2PM-4PM,1002317,184651
 St. Mary's Park,Recreation Center,BX,,,"Tuesday, May 12",1PM-3PM,1007997,234931
-Sunset Park,Recreation Center Entrance (4200 7th Ave),BK,,,"Saturday, May 9",2PM-4PM,983724.4556,174913.8617
 The Big Park,Grandview Ave and Continental Pl,SI,,,"Monday, May 11",10AM-12PM,938360,168950
 Travers Park,78th Street and 34th Avenue,QNS,,,"Tuesday, May 12",10AM-12PM,1015071,213757
-Wagner Playground,120th St and 2nd Ave,MN,,,"Saturday, May 9",10AM-12PM,1002138,230602
 Willowbrook,Entrance off Eton Place,SI,,,"Monday, May 11",2PM-4PM,940636,158880
 Wolfe's Pond Park,Parking Lot off Cornelia Ave,SI,,,"Tuesday, May 12",10AM-12PM,931897,128462
