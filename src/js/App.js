@@ -7,19 +7,12 @@ import Point from 'ol/geom/Point'
 import {extend} from 'ol/extent'
 import screenReaderInfo from './screen-reader'
 
-const getSplashOptions = () => {
-  const search = document.location.search
-  if (search.indexOf('splash=false') === -1) {
-    return {message: 'Face coverings are being distributed in parks across NYC. Find the closest location.'}
-  }
-}
-
 class App extends FinderApp {
   constructor() {
     super({
       title: 'Face Coverings Distribution',
       facilityTabTitle: 'Locations',
-      splashOptions: getSplashOptions(),
+      splashOptions: App.getSplashOptions(document.location.search),
       geoclientUrl: urls.GEOCLIENT_URL,
       facilityUrl: urls.FACILITY_CSV_URL,
       facilityStyle: style,
@@ -49,6 +42,12 @@ class App extends FinderApp {
       this.source.removeFeature(feature)
     })
     super.ready(this.source.getFeatures())
+  }
+}
+
+App.getSplashOptions = search => {
+  if (search.indexOf('splash=false') === -1) {
+    return {message: 'Face coverings are being distributed in parks across NYC. Find the closest location.'}
   }
 }
 
