@@ -25,7 +25,6 @@ const decorations = {
   },
   html() {
     return $('<div class="facility"></div>')
-      .addClass(this.cssClass())
       .append(this.distanceHtml())
       .append(this.nameHtml())
       .append(this.distanceHtml(true))

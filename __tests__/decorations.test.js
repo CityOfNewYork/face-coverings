@@ -58,6 +58,8 @@ Object.assign(staleFeature, decorations.decorations)
 
 beforeEach(() => {
   decorations.staleFeatures.length = 0
+  decorations.decorations.handleOver = jest.fn()
+  decorations.decorations.handleOut = jest.fn()
 })
 
 test('extendFeature', () => {
@@ -155,3 +157,20 @@ test('timeHtml', () => {
   expect(div.html()).toBe('<div class="when"><strong>Face covering distribution date: </strong><div>Monday, May 11, 2020, 2:00 PM - 4:00 PM</div></div>')
 })
 
+test('html', () => {
+  expect.assertions(5)
+
+  const html = superFreshFeature.html()
+
+  expect(html.data('feature')).toBe(superFreshFeature)
+
+  expect(decorations.decorations.handleOver).toHaveBeenCalledTimes(0)
+  html.trigger('mouseover')
+  expect(decorations.decorations.handleOver).toHaveBeenCalledTimes(1)
+
+  expect(decorations.decorations.mouseout).toHaveBeenCalledTimes(0)
+  html.trigger('mouseover')
+  expect(decorations.decorations.mouseout).toHaveBeenCalledTimes(1)
+
+  expect($('<div></div>').html(html)).toBe('')
+})
