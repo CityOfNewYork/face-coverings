@@ -179,18 +179,20 @@ test('timeHtml', () => {
   let tomorrow = new Date(new Date().getTime() + 8.64e+7)
 
   div.html(superFreshFeature1.timeHtml())
-  expect(div.html()).toBe('<div class="when"><strong>Face covering distribution dates: </strong><div>' + DAYS[today.getDay()] + ',' + MONTHS[today.getMonth()] + ', ' + today.getDate() + ' ' + today.getFullYear() + ', 2:00 PM - 4:00 PM</div><div>' + MONTHS[tomorrow.getMonth()] + ', ' + tomorrow.getDate() + ' ' + tomorrow.getFullYear() + ', 10:00 AM - 12:00 PM</div></div>')
+  expect(div.html()).toBe('<div class="when"><strong>Face covering distribution dates: </strong><div>' + DAYS[today.getDay()] + ', ' + MONTHS[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear() + ', 2:00 PM - 4:00 PM</div><div>' + DAYS[tomorrow.getDay()] + ', '+ MONTHS[tomorrow.getMonth()] + ' ' + tomorrow.getDate() + ', ' + tomorrow.getFullYear() + ', 10:00 AM - 12:00 PM</div></div>')
   div.html(mostlyFreshFeature.timeHtml())
-  expect(div.html()).toBe('<div class="when"><strong>Face covering distribution date: </strong><div>' + DAYS[today.getDay()] + ',' + MONTHS[today.getMonth()] + ', ' + today.getDate() + ' ' + today.getFullYear() +  + ', 2:00 PM - 4:00 PM</div></div>')
+  expect(div.html()).toBe('<div class="when"><strong>Face covering distribution date: </strong><div>' + DAYS[today.getDay()] + ', ' + MONTHS[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear() + ', 2:00 PM - 4:00 PM</div></div>')
 
   div.html(superFreshFeature2.timeHtml())
-  expect(div.html()).toBe('<div class="when"><strong>Face covering distribution dates: </strong><div>' + DAYS[today.getDay()] + ',' + MONTHS[today.getMonth()] + ', ' + today.getDate() + ' ' + today.getFullYear() +  ', 10:00 AM - 12:00 PM</div><div>' + DAYS[today.getDay()] + ',' + MONTHS[today.getMonth()] + ', ' + today.getDate() + ' ' + today.getFullYear() + ', 10:00 AM - 3:00 PM</div></div>')
+  expect(div.html()).toBe('<div class="when"><strong>Face covering distribution dates: </strong><div>' + DAYS[today.getDay()] + ', ' + MONTHS[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear() +  ', 10:00 AM - 12:00 PM</div><div>' + DAYS[today.getDay()] + ', ' + MONTHS[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear() + ', 10:00 AM - 3:00 PM</div></div>')
 })
 
 test('html', () => {
   expect.assertions(6)
 
   const html = superFreshFeature1.html()
+  let today = new Date()
+  let tomorrow = new Date(new Date().getTime() + 8.64e+7)
 
   expect(html.data('feature')).toBe(superFreshFeature1)
 
@@ -202,5 +204,5 @@ test('html', () => {
   html.trigger('mouseout')
   expect(decorations.decorations.handleOut).toHaveBeenCalledTimes(1)
 
-  expect($('<div></div>').html(html).html()).toBe('<div class="facility"><div class="when"><strong>Face covering distribution dates: </strong><div>' + DAYS[today.getDay()] + ',' + MONTHS[today.getMonth()] + ', ' + today.getDate() + ' ' + today.getFullYear() + ', 2:00 PM - 4:00 PM</div><div>Wednesday, May 13, 2020, 10:00 AM - 12:00 PM</div></div></div>')
+  expect($('<div></div>').html(html).html()).toBe('<div class="facility"><div class="when"><strong>Face covering distribution dates: </strong><div>' + DAYS[today.getDay()] + ', ' + MONTHS[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear() + ', 2:00 PM - 4:00 PM</div><div>' + DAYS[tomorrow.getDay()] + ', '+ MONTHS[tomorrow.getMonth()] + ' ' + tomorrow.getDate() + ', ' + tomorrow.getFullYear() + ', 10:00 AM - 12:00 PM</div></div></div>')
 })
