@@ -29,7 +29,7 @@ describe('constructor', () => {
     expect(FinderApp.mock.calls[0][0]).toEqual({
       title: 'Face Coverings Distribution',
       facilityTabTitle: 'Locations',
-      splashOptions: {message: 'Face coverings are being distributed in parks across NYC. Find the closest location.'},
+      splashOptions: {message: 'New York City will continue distributing face coverings in parks, <a href="https://dsny.maps.arcgis.com/apps/webappviewer/index.html?id=35901167a9d84fb0a2e0672d344f176f">DOE Grab & Go</a> meal sites, NYCHA buildings, some Mitchell-Lama buildings, grocery stores, and during social distancing enforcement.<br><br>Additional distribution dates, locations, and times will be coming soon.'},
       geoclientUrl: urls.GEOCLIENT_URL,
       facilityUrl: urls.FACILITY_CSV_URL,
       facilityStyle: style,
@@ -73,7 +73,7 @@ describe('constructor', () => {
 test('getSplashOptions', () => {
   expect.assertions(2)
 
-  expect(App.getSplashOptions('')).toEqual({message: 'Face coverings are being distributed in parks across NYC. Find the closest location.'})
+  expect(App.getSplashOptions('')).toEqual({message: 'New York City will continue distributing face coverings in parks, <a href="https://dsny.maps.arcgis.com/apps/webappviewer/index.html?id=35901167a9d84fb0a2e0672d344f176f">DOE Grab & Go</a> meal sites, NYCHA buildings, some Mitchell-Lama buildings, grocery stores, and during social distancing enforcement.<br><br>Additional distribution dates, locations, and times will be coming soon.'})
   expect(App.getSplashOptions('?splash=false')).toBeUndefined()
 })
 

@@ -47,7 +47,7 @@ class App extends FinderApp {
 
 App.getSplashOptions = search => {
   if (search.indexOf('splash=false') === -1) {
-    return {message: 'Face coverings are being distributed in parks across NYC. Find the closest location.'}
+    return {message: 'New York City will continue distributing face coverings in parks, <a href="https://dsny.maps.arcgis.com/apps/webappviewer/index.html?id=35901167a9d84fb0a2e0672d344f176f">DOE Grab & Go</a> meal sites, NYCHA buildings, some Mitchell-Lama buildings, grocery stores, and during social distancing enforcement.<br><br>Additional distribution dates, locations, and times will be coming soon.'}
   }
 }
 
