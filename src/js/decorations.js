@@ -2,9 +2,17 @@ import $ from 'jquery'
 import proj4 from 'proj4'
 import nyc from 'nyc-lib/nyc'
 
+
+const NOW_TODAY = new Date()
+
+const today_yyyy = NOW_TODAY.getFullYear().toString()
+const today_mm = (NOW_TODAY.getMonth() + 1).toString().padStart(2, '0')
+const today_dd = NOW_TODAY.getDate().toString().padStart(2, '0')
+
+const TODAY = `${today_yyyy}-${today_mm}-${today_dd}`
+
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-const TODAY = new Date().toISOString().split('T')[0]
 
 const staleFeatures = []
 

@@ -3,9 +3,24 @@ import proj4 from 'proj4'
 import decorations from '../src/js/decorations'
 import Feature from 'ol/Feature'
 
-const TODAY = new Date().toISOString().split('T')[0]
-const YESTERDAY = new Date(new Date(TODAY).getTime() - 8.64e+7).toISOString().split('T')[0]
-const TOMORROW = new Date(new Date(TODAY).getTime() + 8.64e+7).toISOString().split('T')[0]
+const NOW_TODAY = new Date()
+const NOW_YESTERDAY = new Date(NOW_TODAY.getTime() - 8.64e+7)
+const NOW_TOMORROW = new Date(NOW_TODAY.getTime() + 8.64e+7)
+
+const today_yyyy = NOW_TODAY.getFullYear().toString()
+const today_mm = (NOW_TODAY.getMonth() + 1).toString().padStart(2, '0')
+const today_dd = NOW_TODAY.getDate().toString().padStart(2, '0')
+const TODAY = `${today_yyyy}-${today_mm}-${today_dd}`
+
+const yesterday_yyyy = NOW_YESTERDAY.getFullYear().toString()
+const yesterday_mm = (NOW_YESTERDAY.getMonth() + 1).toString().padStart(2, '0')
+const yesterday_dd = NOW_YESTERDAY.getDate().toString().padStart(2, '0')
+const YESTERDAY = `${yesterday_yyyy}-${yesterday_mm}-${yesterday_dd}`
+
+const tomorrow_yyyy = NOW_TOMORROW.getFullYear().toString()
+const tomorrow_mm = (NOW_TOMORROW.getMonth() + 1 ).toString().padStart(2, '0')
+const tomorrow_dd = NOW_TOMORROW.getDate().toString().padStart(2, '0')
+const TOMORROW = `${tomorrow_yyyy}-${tomorrow_mm}-${tomorrow_dd}`
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -175,24 +190,50 @@ test('timeHtml', () => {
 
   const div = $('<div></div>')
 
-  let today = new Date()
-  let tomorrow = new Date(new Date().getTime() + 8.64e+7)
-
   div.html(superFreshFeature1.timeHtml())
-  expect(div.html()).toBe('<div class="when"><strong>Face covering distribution dates: </strong><div>' + DAYS[today.getDay()] + ', ' + MONTHS[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear() + ', 2:00 PM - 4:00 PM</div><div>' + DAYS[tomorrow.getDay()] + ', '+ MONTHS[tomorrow.getMonth()] + ' ' + tomorrow.getDate() + ', ' + tomorrow.getFullYear() + ', 10:00 AM - 12:00 PM</div></div>')
+  expect(div.html()).toBe(
+    '<div class="when"><strong>Face covering distribution dates: </strong><div>' + 
+    DAYS[NOW_TODAY.getDay()] + ', ' + 
+    MONTHS[NOW_TODAY.getMonth()] + ' ' + 
+    NOW_TODAY.getDate() + ', ' + 
+    NOW_TODAY.getFullYear() + 
+    ', 2:00 PM - 4:00 PM</div><div>' + 
+    DAYS[NOW_TOMORROW.getDay()] + ', ' + 
+    MONTHS[NOW_TOMORROW.getMonth()] + ' ' + 
+    NOW_TOMORROW.getDate() + ', ' + 
+    NOW_TOMORROW.getFullYear() + 
+    ', 10:00 AM - 12:00 PM</div></div>'
+  )
   div.html(mostlyFreshFeature.timeHtml())
-  expect(div.html()).toBe('<div class="when"><strong>Face covering distribution date: </strong><div>' + DAYS[today.getDay()] + ', ' + MONTHS[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear() + ', 2:00 PM - 4:00 PM</div></div>')
+  expect(div.html()).toBe(
+    '<div class="when"><strong>Face covering distribution date: </strong><div>' +
+    DAYS[NOW_TODAY.getDay()] + ', ' +
+    MONTHS[NOW_TODAY.getMonth()] + ' ' +
+    NOW_TODAY.getDate() + ', ' +
+    NOW_TODAY.getFullYear() +
+    ', 2:00 PM - 4:00 PM</div></div>'
+  )
 
   div.html(superFreshFeature2.timeHtml())
-  expect(div.html()).toBe('<div class="when"><strong>Face covering distribution dates: </strong><div>' + DAYS[today.getDay()] + ', ' + MONTHS[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear() +  ', 10:00 AM - 12:00 PM</div><div>' + DAYS[today.getDay()] + ', ' + MONTHS[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear() + ', 10:00 AM - 3:00 PM</div></div>')
+  expect(div.html()).toBe(
+    '<div class="when"><strong>Face covering distribution dates: </strong><div>' +
+    DAYS[NOW_TODAY.getDay()] + ', ' +
+    MONTHS[NOW_TODAY.getMonth()] + ' ' +
+    NOW_TODAY.getDate() + ', ' +
+    NOW_TODAY.getFullYear() +
+    ', 10:00 AM - 12:00 PM</div><div>' +
+    DAYS[NOW_TODAY.getDay()] + ', ' +
+    MONTHS[NOW_TODAY.getMonth()] + ' ' +
+    NOW_TODAY.getDate() + ', ' +
+    NOW_TODAY.getFullYear() +
+    ', 10:00 AM - 3:00 PM</div></div>'
+  )
 })
 
 test('html', () => {
   expect.assertions(6)
 
   const html = superFreshFeature1.html()
-  let today = new Date()
-  let tomorrow = new Date(new Date().getTime() + 8.64e+7)
 
   expect(html.data('feature')).toBe(superFreshFeature1)
 
@@ -204,5 +245,17 @@ test('html', () => {
   html.trigger('mouseout')
   expect(decorations.decorations.handleOut).toHaveBeenCalledTimes(1)
 
-  expect($('<div></div>').html(html).html()).toBe('<div class="facility"><div class="when"><strong>Face covering distribution dates: </strong><div>' + DAYS[today.getDay()] + ', ' + MONTHS[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear() + ', 2:00 PM - 4:00 PM</div><div>' + DAYS[tomorrow.getDay()] + ', '+ MONTHS[tomorrow.getMonth()] + ' ' + tomorrow.getDate() + ', ' + tomorrow.getFullYear() + ', 10:00 AM - 12:00 PM</div></div></div>')
+  expect($('<div></div>').html(html).html()).toBe(
+    '<div class="facility"><div class="when"><strong>Face covering distribution dates: </strong><div>' +
+    DAYS[NOW_TODAY.getDay()] + ', ' +
+    MONTHS[NOW_TODAY.getMonth()] + ' ' +
+    NOW_TODAY.getDate() + ', '
+    + NOW_TODAY.getFullYear() +
+    ', 2:00 PM - 4:00 PM</div><div>' +
+    DAYS[NOW_TOMORROW.getDay()] + ', ' +
+    MONTHS[NOW_TOMORROW.getMonth()] + ' ' +
+    NOW_TOMORROW.getDate() + ', ' +
+    NOW_TOMORROW.getFullYear() +
+    ', 10:00 AM - 12:00 PM</div></div></div>'
+  )
 })
